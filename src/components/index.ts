@@ -1,1 +1,1 @@
-export * from "./RangeInput";
+export * from "./range-input";

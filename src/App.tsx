@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
-import { SignalLevel } from "./widgets";
+
+import { ProgressIndicator } from "@/widgets";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
         overflow: auto;
       `}
     >
-      <SignalLevel />
+      <ProgressIndicator />
     </div>
   );
 }

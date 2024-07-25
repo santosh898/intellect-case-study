@@ -1,4 +1,3 @@
-import { forwardRef, useEffect, useState } from "react";
 import styled from "@emotion/styled";
 
 /* 
@@ -6,7 +5,7 @@ Followed this guide to customize the range input
 https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
 */
 
-const StyledInput = styled.input<{ percentage?: number }>`
+export const StyledInput = styled.input<{ percentage?: number }>`
   appearance: none; /* Hides the slider so that custom slider can be made */
   width: 100%; /* Specific width is required for Firefox. */
   background: transparent; /* Otherwise white in Chrome */
@@ -98,41 +97,3 @@ const StyledInput = styled.input<{ percentage?: number }>`
     margin-top: -0.25em;
   }
 `;
-
-export interface RangeInputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
-  defaultValue?: number;
-  value?: number;
-  onValueChange?: (v: number) => void;
-  min: number;
-  max: number;
-}
-
-export const RangeInput = forwardRef<HTMLInputElement, RangeInputProps>(
-  ({ value, onValueChange, min, max, defaultValue = 0, ...props }, ref) => {
-    const [internalValue, setInternalValue] = useState(
-      value !== undefined ? value : defaultValue ?? 0
-    );
-
-    useEffect(() => {
-      if (value === undefined) return;
-      setInternalValue(value);
-    }, [value]);
-
-    return (
-      <StyledInput
-        ref={ref}
-        {...props}
-        type="range"
-        value={internalValue}
-        onChange={(e) => {
-          setInternalValue(Number(e.target.value));
-          onValueChange?.(Number(e.target.value));
-        }}
-        min={min}
-        max={max}
-        percentage={((internalValue - min) / (max - min)) * 100}
-      />
-    );
-  }
-);
