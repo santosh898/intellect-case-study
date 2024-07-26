@@ -2,6 +2,8 @@
 
 This project is created using Vite.
 
+## [Live Demo](https://intellect-case-study.vercel.app/)
+
 ## Tools and Libraries Used
 
 - pnpm
