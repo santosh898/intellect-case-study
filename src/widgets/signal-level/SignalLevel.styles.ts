@@ -15,12 +15,18 @@ export const Container = styled.div`
 
 export const Bar = styled.button`
   min-height: 0.5em;
-  height: 1em;
-  border-radius: 1em;
+  height: 2em;
+  border-radius: 0.75em;
   border: none;
   box-shadow: none;
   cursor: pointer;
   &:disabled {
     cursor: not-allowed;
   }
+`;
+
+export const LevelText = styled.p`
+  font-size: 1em;
+  letter-spacing: 2px;
+  color: #6eacda;
 `;
