@@ -1,20 +1,17 @@
-import { css } from "@emotion/react";
+import { createRouter, RouterProvider } from "@tanstack/react-router";
 
-import { ProgressIndicator } from "@/widgets";
+import { routeTree } from "./routeTree.gen";
+
+const router = createRouter({ routeTree });
+
+declare module "@tanstack/react-router" {
+  interface Register {
+    router: typeof router;
+  }
+}
 
 function App() {
-  return (
-    <div
-      css={css`
-        display: flex;
-        justify-content: center;
-        height: 100%;
-        overflow: auto;
-      `}
-    >
-      <ProgressIndicator />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
