@@ -25,7 +25,8 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["vitest/globals", "vitest/importMeta", "vite/client", "vitest"]
   },
   "include": ["src"]
 }
