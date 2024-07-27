@@ -4,6 +4,14 @@ This project is created using Vite.
 
 ## [Live Demo](https://intellect-case-study.vercel.app/)
 
+## Rest of the Case Studies
+
+- [Libraries I use](case-study/Technologies.md)
+
+- [Web App for Existing Mobile App](case-study/Web-App-for-Existing-Mobile-App.md)
+
+- [Intellect App UX Review](case-study/Intellect-App-UX.md)
+
 ## Tools and Libraries Used
 
 - pnpm
