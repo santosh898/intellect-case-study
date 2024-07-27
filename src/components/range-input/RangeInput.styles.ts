@@ -17,23 +17,16 @@ export const StyledInput = styled.input<{ percentage?: number }>`
     width: 100%;
     height: 0.75em;
     cursor: pointer;
-    background: linear-gradient(
-      to right,
-      #6eacda 0%,
-      #6eacda 30%,
-      white 30%,
-      white 100%
-    );
     /*
       There's no selector to style just the filled portion,
       we can only style the whole track. 
       So we have to employ the linear gradient way.
       look at the implementation for percentage calculations.
    */
-    background: ${({ percentage = 0 }) => `linear-gradient(
+    background: ${({ percentage = 0, theme }) => `linear-gradient(
       to right,
-      #6eacda 0%,
-      #6eacda ${percentage}%,
+      ${theme.colors.text} 0%,
+      ${theme.colors.text} ${percentage}%,
       white ${percentage}%,
       white 100%
     )`};
@@ -41,22 +34,24 @@ export const StyledInput = styled.input<{ percentage?: number }>`
   }
 
   &::-webkit-slider-thumb {
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    box-shadow:
+      1px 1px 1px #000000,
+      0px 0px 1px #0d0d0d;
     border: 2px solid white;
     height: 1.25em;
     width: 1.25em;
     border-radius: 50%;
-    background: #6eacda;
+    background: ${({ theme }) => theme.colors.text};
     cursor: pointer;
     -webkit-appearance: none;
     margin-top: -0.25em;
   }
 
   &:focus::-webkit-slider-runnable-track {
-    background: ${({ percentage = 0 }) => `linear-gradient(
+    background: ${({ percentage = 0, theme }) => `linear-gradient(
       to right,
-      #6eacda 0%,
-      #6eacda ${percentage}%,
+      ${theme.colors.text} 0%,
+      ${theme.colors.text} ${percentage}%,
       white ${percentage}%,
       white 100%
     )`};
@@ -66,10 +61,10 @@ export const StyledInput = styled.input<{ percentage?: number }>`
     width: 100%;
     height: 0.75em;
     cursor: pointer;
-    background: ${({ percentage = 0 }) => `linear-gradient(
+    background: ${({ percentage = 0, theme }) => `linear-gradient(
       to right,
-      #6eacda 0%,
-      #6eacda ${percentage}%,
+      ${theme.colors.text} 0%,
+      ${theme.colors.text} ${percentage}%,
       white ${percentage}%,
       white 100%
     )`};
@@ -77,22 +72,24 @@ export const StyledInput = styled.input<{ percentage?: number }>`
   }
 
   &:focus::-moz-range-track {
-    background: ${({ percentage = 0 }) => `linear-gradient(
+    background: ${({ percentage = 0, theme }) => `linear-gradient(
       to right,
-      #6eacda 0%,
-      #6eacda ${percentage}%,
+      ${theme.colors.text} 0%,
+      ${theme.colors.text} ${percentage}%,
       white ${percentage}%,
       white 100%
     )`};
   }
 
   &::-moz-range-thumb {
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    box-shadow:
+      1px 1px 1px #000000,
+      0px 0px 1px #0d0d0d;
     border: 2px solid white;
     height: 1.25em;
     width: 1.25em;
     border-radius: 50%;
-    background: #6eacda;
+    background: ${({ theme }) => theme.colors.text};
     cursor: pointer;
     margin-top: -0.25em;
   }

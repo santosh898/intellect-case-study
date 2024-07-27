@@ -6,6 +6,7 @@ import { normalizeRange } from "@/utils";
 import { Container } from "./SignalLevel.styles";
 import { SignalLevelProps } from "./types";
 import LevelLabel from "./LevelLabel";
+import { useTheme } from "@emotion/react";
 
 export const SignalLevel = ({
   value,
@@ -13,6 +14,8 @@ export const SignalLevel = ({
   onValueChange,
 }: SignalLevelProps) => {
   const [level, setLevel] = useState<number>(value ? value : 1);
+
+  const theme = useTheme();
 
   useEffect(() => {
     if (!value) return;
@@ -78,7 +81,7 @@ export const SignalLevel = ({
             preserveAspectRatio="none"
             viewBox={viewBox}
             key={index}
-            fill={`${value <= level ? "#6EACDA" : "gray"}`}
+            fill={`${value <= level ? theme.colors.text : "gray"}`}
             onClick={() => setLevel(value)}
             style={{ cursor: "pointer" }}
             role="button"

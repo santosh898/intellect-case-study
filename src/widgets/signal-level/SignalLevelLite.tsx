@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { css } from "@emotion/react";
+import { css, useTheme } from "@emotion/react";
 
 import { Bar, Container } from "./SignalLevel.styles";
 import { SignalLevelProps } from "./types";
@@ -12,6 +12,8 @@ export const SignalLevelLite = ({
   onValueChange,
 }: SignalLevelProps) => {
   const [level, setLevel] = useState<number>(value ? value : 1);
+
+  const theme = useTheme();
 
   useEffect(() => {
     if (!value) return;
@@ -65,7 +67,7 @@ export const SignalLevelLite = ({
             key={index}
             css={css`
               width: ${widthPercent}%;
-              background-color: ${value <= level ? "#6EACDA" : "gray"};
+              background-color: ${value <= level ? theme.colors.text : "gray"};
             `}
             onClick={() => setLevel(value)}
           />

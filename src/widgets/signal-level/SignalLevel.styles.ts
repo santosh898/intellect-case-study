@@ -28,5 +28,5 @@ export const Bar = styled.button`
 export const LevelText = styled.p`
   font-size: 1em;
   letter-spacing: 2px;
-  color: #6eacda;
+  color: ${({ theme }) => `${theme.colors.text}`};
 `;

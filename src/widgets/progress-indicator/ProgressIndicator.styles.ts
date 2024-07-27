@@ -44,11 +44,11 @@ export const Progress = styled(CircularDiv)<{ percentage?: number }>`
 
 export const CircularContainer = styled(CircularDiv)`
   padding: 1.25em;
-  background-color: #03346e;
+  background-color: ${({ theme }) => theme.colors.primary};
 `;
 
 export const InnerCircle = styled(CircularDiv)`
-  background-color: #6eacda;
+  background-color: ${({ theme }) => theme.colors.text};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,5 +57,5 @@ export const InnerCircle = styled(CircularDiv)`
 export const ProgressValue = styled.p`
   font-size: 4em;
   font-weight: bold;
-  color: #021526;
+  color: ${({ theme }) => theme.colors.background};
 `;
